@@ -51,10 +51,6 @@
             overflow-x: hidden;
         }
 
-        [lang="ur"] body {
-            direction: rtl;
-        }
-
         html {
             scroll-behavior: smooth;
         }
@@ -879,10 +875,12 @@
             .nav-wrapper { justify-content: center; }
         }
 
-        /* Urdu Text Hidden by Default */
+        /* ===== Urdu Language Toggle Styles ===== */
         [data-urdu] { display: none; }
-        [lang="ur"] [data-english] { display: none; }
-        [lang="ur"] [data-urdu] { display: block; }
+        [lang="ur"] [data-english] { display: none !important; }
+        [lang="ur"] [data-urdu] { display: block !important; }
+        [lang="ur"] body { direction: rtl; }
+        [lang="ur"] html { direction: rtl; }
     </style>
 </head>
 <body>
@@ -902,7 +900,7 @@
     <div class="top-bar">
         <span data-english>⚡ Limited Slots Available — Book Your Project Today!</span>
         <span data-urdu>⚡ محدود جگہیں دستیاب ہیں — آج ہی اپنا پروجیکٹ بک کریں!</span>
-        <span>⚡ <span data-english>3 Spots Left This Week</span><span data-urdu>اس ہفتے 3 جگہیں باقی ہیں</span></span>
+        <span><span data-english>⚡ 3 Spots Left This Week</span><span data-urdu>⚡ اس ہفتے 3 جگہیں باقی ہیں</span></span>
     </div>
 
     <header>
@@ -1191,4 +1189,4 @@
                 <a href="mailto:noor226230@gmail.com"><i class="fas fa-envelope"></i></a>
                 <a href="https://zinnhub.com/store/noor-web-studio/" target="_blank"><i class="fas fa-shopping-bag"></i></a>
             </div>
-            <p>&copy; 2026 Noor Web Studio. <span data-english>All rights reserved. Made with ❤️ in Karachi, Pakistan.</span><span data-urdu>ج
+            <p>&copy; 2026 Noor Web Studio. <span data-english>All rights reserved. Made with ❤️ in Karachi, Pakistan.</span><span data
