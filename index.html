@@ -1,730 +1,1404 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <title>Noor Hussain · Web & UI / Graphic Designer · Professional Portfolio</title>
-    <meta name="description" content="Noor Hussain — Professional Web & Graphic Designer from Karachi. Clean responsive websites, logos, landing pages & UI designs using HTML, CSS & Figma." />
-    <meta name="keywords" content="ویب ڈیزائنر, ویب ڈیولپر, گرافکس ڈیزائنر, فری لانسر, کراچی, HTML, CSS, لوگو ڈیزائن, UI ڈیزائن, Web Designer, Graphic Designer, Logo Design, Freelancer, Karachi" />
-    <meta name="author" content="Noor Hussain" />
-    <meta name="robots" content="index, follow" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="logo.png" />
-
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noor Web Studio · Premium Web & Graphic Design</title>
+    <meta name="description" content="Noor Web Studio — Premium Web & Graphic Designer. Order custom websites, logos & social media. Fast delivery, affordable prices. WhatsApp direct order.">
+    <meta name="keywords" content="web designer, graphic designer, logo design, order now, direct hire, premium design, Karachi, Pakistan">
+    <meta name="author" content="Noor Hussain">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* ===== ROOT VARIABLES ===== */
-        :root {
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --text: #0f172a;
-            --muted: #64748b;
-            --primary: #2563eb;
-            --accent: #f97316;
-            --urdu: 'Noto Nastaliq Urdu', serif;
-            --en: 'Poppins', sans-serif;
-            --radius: 14px;
-            --shadow: 0 4px 20px rgba(0, 0, 0, .06);
-        }
-
-        /* ===== DARK THEME ===== */
-        [data-theme="dark"] {
-            --bg: #0f172a;
-            --card: #1e293b;
-            --text: #f1f5f9;
-            --muted: #94a3b8;
-            --primary: #3b82f6;
-            --shadow: 0 4px 20px rgba(0, 0, 0, .35);
-        }
-
-        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: background-color .3s ease, color .25s ease;
+            font-family: 'Poppins', 'Noto Nastaliq Urdu', sans-serif;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #ec4899;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --card: #ffffff;
+            --text: #334155;
+            --muted: #64748b;
+            --shadow-lg: 0 20px 60px rgba(99, 102, 241, 0.15);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        [data-theme="dark"] {
+            --primary: #818cf8;
+            --secondary: #f472b6;
+            --accent: #34d399;
+            --dark: #f8fafc;
+            --light: #0f172a;
+            --card: #1e293b;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
         }
 
         body {
-            font-family: var(--en);
-            background: var(--bg);
+            background-color: var(--light);
             color: var(--text);
-            line-height: 1.8;
-            font-size: 18px;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            overflow-x: hidden;
         }
 
-        html[dir="rtl"] body,
-        .urdu {
-            font-family: var(--urdu);
-            line-height: 1.9;
+        html {
+            scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 1140px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 1.25rem;
+            padding: 0 20px;
         }
 
-        section {
-            padding: 4rem 0;
+        /* 📊 Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.1s ease;
         }
 
-        h1,
-        h2,
-        h3 {
-            line-height: 1.2;
-            font-weight: 700;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-        }
-
-        h2 {
-            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-            margin-bottom: 2rem;
+        /* ⚡ Top Bar */
+        .top-bar {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
             text-align: center;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 101;
         }
 
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-flex;
-            gap: .5rem;
+        .top-bar span {
+            background: rgba(255,255,255,0.2);
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-left: 10px;
+            font-size: 0.85rem;
+        }
+
+        /* 🔔 Floating Notification */
+        .floating-notification {
+            position: fixed;
+            bottom: 90px;
+            left: 20px;
+            background: var(--card);
+            padding: 12px 18px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            z-index: 998;
+            display: flex;
             align-items: center;
-            padding: .85rem 1.8rem;
-            border-radius: 50px;
-            font-weight: 500;
+            gap: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            pointer-events: none;
+        }
+
+        .floating-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .floating-notification i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .floating-notification p {
+            font-size: 0.85rem;
+            color: var(--text);
+        }
+
+        /* 💬 Floating WhatsApp Chat */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
             text-decoration: none;
-            transition: .3s;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.15);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Header */
+        header {
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(248, 250, 252, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(15, 23, 42, 0.85);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .lang-toggle {
+            background: rgba(99, 102, 241, 0.1);
+            border: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary);
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .lang-toggle:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--text);
+            padding: 8px;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .nav-order-btn {
+            padding: 10px 24px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .nav-order-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 90px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99,102,241,0.08), transparent 70%);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(236,72,153,0.06), transparent 70%);
+            bottom: -150px;
+            left: -150px;
+            border-radius: 50%;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            background: rgba(99, 102, 241, 0.08);
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero p.subtitle {
+            font-size: 1.15rem;
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .btn {
+            padding: 15px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
             border: none;
             cursor: pointer;
-            font-size: .95rem;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), #1d4ed8);
-            color: #fff;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, .3);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.35);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.45);
         }
 
-        .btn-outline {
+        .btn-secondary {
             border: 2px solid var(--primary);
             color: var(--primary);
             background: transparent;
         }
 
-        .btn-outline:hover {
+        .btn-secondary:hover {
             background: var(--primary);
-            color: #fff;
+            color: white;
+            transform: translateY(-2px);
         }
 
-        /* ===== GRID ===== */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.75rem;
-        }
-
-        /* ===== CARDS ===== */
-        .card {
-            background: var(--card);
-            border-radius: var(--radius);
-            padding: 1.75rem;
-            box-shadow: var(--shadow);
-            transition: .3s;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: calc(var(--radius) - 4px);
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .card h3 {
-            font-size: 1.2rem;
-            margin-bottom: .75rem;
-            color: var(--primary);
-        }
-
-        /* ===== TOP BAR / NAV ===== */
-        .top-bar {
-            background: var(--card);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 99;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, .04);
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: .75rem;
-        }
-
-        html[dir="rtl"] .nav {
-            flex-direction: row-reverse;
-        }
-
-        .nav-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: .6rem;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--primary);
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .nav-logo img {
-            width: 38px;
-            height: 38px;
-            border-radius: 8px;
-            object-fit: contain;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.4rem;
-            list-style: none;
-            flex-wrap: wrap;
-            padding: 0;
-            align-items: center;
-        }
-
-        html[dir="rtl"] .nav-links {
-            flex-direction: row-reverse;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 450;
-            transition: .2s;
-            font-size: .95rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* ===== TOGGLE GROUP ===== */
-        .toggle-group {
-            display: flex;
-            gap: .4rem;
-            align-items: center;
-        }
-
-        html[dir="rtl"] .toggle-group {
-            flex-direction: row-reverse;
-        }
-
-        .toggle-btn {
+        .btn-outline-white {
+            border: 2px solid white;
+            color: white;
             background: transparent;
-            border: 1px solid transparent;
-            color: var(--text);
-            padding: .3rem .6rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: .8rem;
-            display: flex;
-            align-items: center;
-            gap: .25rem;
-            transition: .2s;
         }
 
-        .toggle-btn:hover,
-        .toggle-btn.active {
-            border-color: var(--primary);
-            background: rgba(37, 99, 235, .08);
+        .btn-outline-white:hover {
+            background: white;
             color: var(--primary);
         }
 
-        /* ===== THEME SWITCH ===== */
-        .theme-switch {
-            position: relative;
-            width: 46px;
-            height: 24px;
-            appearance: none;
-            background: #cbd5e1;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: .3s;
-            border: none;
-            outline: none;
-            flex-shrink: 0;
-        }
-
-        .theme-switch:checked {
-            background: #3b82f6;
-        }
-
-        .theme-switch::before {
-            content: "";
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 20px;
-            height: 20px;
-            background: #fff;
-            border-radius: 50%;
-            transition: .3s;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
-        }
-
-        .theme-switch:checked::before {
-            transform: translateX(22px);
-        }
-
-        html[dir="rtl"] .theme-switch::before {
-            left: auto;
-            right: 2px;
-        }
-
-        html[dir="rtl"] .theme-switch:checked::before {
-            transform: translateX(-22px);
-        }
-
-        /* ===== HERO ===== */
-        .hero {
-            padding: 4.5rem 0 3.5rem;
+        /* 📊 Stats Counter */
+        .stats-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 30px;
         }
 
         @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 2.5rem;
-            }
-            .nav {
-                justify-content: center;
-            }
-            .nav-links {
-                gap: .9rem;
-                font-size: .88rem;
-                justify-content: center;
-                margin-top: .5rem;
-                flex-wrap: wrap;
+            .stats-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
         }
 
-        .hero h1 span {
+        .stat-card {
+            background: var(--card);
+            padding: 25px 15px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-heading h2 {
+            font-size: 2.3rem;
+            color: var(--dark);
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 20px auto 0;
+            font-size: 1.05rem;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--card);
+            padding: 35px 28px;
+            border-radius: 18px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover:hover {
+            transform: translateY(-10px);
+            color: white;
+        }
+
+        .service-card:hover:hover .service-icon {
+            background: white;
             color: var(--primary);
         }
 
-        .hero p {
-            font-size: 1.05rem;
-            color: var(--muted);
-            margin: 1.4rem 0 2rem;
-            max-width: 580px;
-            line-height: 1.8;
+        .service-card:hover:hover::before {
+            opacity: 1;
         }
 
-        .hero p.urdu {
-            font-size: .98rem;
-            line-height: 2;
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            color: white;
+            margin: 0 auto 20px;
+            transition: all 0.4s ease;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* My Work Gallery */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .work-card {
+            background: var(--card);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .work-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.18);
+        }
+
+        .work-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .work-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+            gap: 12px;
+        }
+
+        .work-card:hover .work-overlay {
+            opacity: 1;
+        }
+
+        .work-overlay span {
+            color: white;
+            font-weight: 600;
+            padding: 10px 22px;
+            border: 2px solid white;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+
+        .work-content {
+            padding: 25px;
+        }
+
+        .work-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .work-content p {
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin-bottom: 15px;
+        }
+
+        .work-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .tag {
-            display: inline-block;
-            background: rgba(37, 99, 235, .08);
+            background: rgba(99, 102, 241, 0.1);
             color: var(--primary);
-            padding: .4rem 1rem;
-            border-radius: 50px;
-            font-size: .9rem;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
             font-weight: 500;
-            margin-bottom: 1rem;
         }
 
-        .contact-links {
+        /* 🗺️ Process Timeline */
+        .process-section {
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.03), transparent);
+            border-radius: 24px;
+            padding: 60px 30px;
+            margin: 60px 0;
+        }
+
+        .process-timeline {
             display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 30px;
         }
 
-        .contact-links a {
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 0;
+        }
+
+        @media (max-width: 768px) {
+            .process-timeline::before { display: none; }
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 160px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
             display: flex;
             align-items: center;
-            gap: .6rem;
-            padding: .9rem 1.4rem;
-            background: var(--card);
-            border-radius: var(--radius);
-            color: var(--text);
-            text-decoration: none;
-            box-shadow: var(--shadow);
-            transition: .2s;
-            font-size: .95rem;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 auto 15px;
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.3);
         }
 
-        html[dir="rtl"] .contact-links a {
-            flex-direction: row-reverse;
+        .process-step h4 {
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            color: var(--dark);
         }
 
-        .contact-links a:hover {
-            background: var(--primary);
-            color: #fff;
-        }
-
-        /* ===== SKILL BADGES ===== */
-        .skill-badge {
-            display: inline-block;
-            background: var(--card);
-            padding: .5rem 1.2rem;
-            border-radius: 50px;
-            margin: .25rem;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            font-weight: 500;
-            font-size: .85rem;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            text-align: center;
-            padding: 2.5rem 1rem;
+        .process-step p {
+            font-size: 0.82rem;
             color: var(--muted);
-            font-size: .9rem;
+            line-height: 1.4;
         }
 
-        a {
+        /* Testimonials */
+        .testimonials-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.03), rgba(236, 72, 153, 0.03));
+            border-radius: 24px;
+            padding: 60px 30px;
+            margin: 60px 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(99, 102, 241, 0.08);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .stars {
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .testimonial-role {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        /* Pricing Packages */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .pricing-card {
+            background: var(--card);
+            border-radius: 24px;
+            padding: 45px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 2px solid transparent;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.15);
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border-color: var(--primary);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 6px 35px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+
+        .pricing-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .pricing-subtitle {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 30px;
+            line-height: 1;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 11px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            color: var(--text);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li i {
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .btn-block {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Order Form Section */
+        .order-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
+            border-radius: 24px;
+            padding: 70px 30px;
+            margin: 70px 0;
+        }
+
+        .order-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card);
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: var(--text);
+            background: var(--light);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
+        }
+
+        /* Why Choose Me */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: var(--card);
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .why-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .why-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .why-content h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .why-content p {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 24px;
+            padding: 70px 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            top: -150px;
+            right: -100px;
+        }
+
+        .cta > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 1.05rem;
+            margin-bottom: 35px;
+            opacity: 0.92;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+            font-size: 1.05rem;
+            padding: 16px 40px;
+        }
+
+        .cta .btn:hover {
+            background: var(--dark);
+            color: white;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 30px 25px;
+            background: var(--card);
+            border-radius: 18px;
+            box-shadow: var(--shadow-md);
             text-decoration: none;
+            color: inherit;
+            transition: all 0.4s ease;
         }
 
-        /* ===== LANGUAGE HIDE/SHOW ===== */
-        [data-lang="ur"],
-        [data-lang="en"] {
-            display: contents;
-            transition: opacity .25s;
+        .contact-card:hover {
+            transform: translateY(-8px);
         }
 
-        body:not(.lang-ur) [data-lang="ur"],
-        body.lang-ur [data-lang="en"] {
-            display: none !important;
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin: 0 auto 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-card h4 {
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-size: 0.98rem;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card);
+            padding: 60px 0 25px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+
+            .order-form {
+                padding: 25px 20px;
+            }
         }
     </style>
 </head>
+<body>
 
-<body data-theme="light" class="lang-ur">
+    <!-- 📊 Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- ===== NAVIGATION ===== -->
-    <header class="top-bar">
-        <div class="container nav">
-            <a href="#home" class="nav-logo">
-                <img src="logo.png" alt="Noor Hussain Logo" loading="lazy" width="40" height="40" />
-                <span>Noor Hussain</span>
+    <!-- 🔔 Floating Notification -->
+    <div class="floating-notification" id="floatingNote">
+        <i class="fas fa-check-circle"></i>
+        <p>Someone just placed an order! 🎉</p>
+    </div>
+
+    <!-- 💬 Floating WhatsApp Chat -->
+    <a href="https://wa.me/923110226230" target="_blank" class="floating-whatsapp" title="Chat with me on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ⚡ Top Bar -->
+    <div class="top-bar">
+        ⚡ Limited Slots Available — Book Your Project Today! <span>⚡ 3 Spots Left This Week</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fas fa-pen-nib"></i></div>
+                Noor<span>Web</span>Studio
             </a>
-            <ul class="nav-links">
-                <li>
-                    <a href="#home" data-lang="en">Home</a>
-                    <a href="#home" data-lang="ur">ہوم</a>
-                </li>
-                <li>
-                    <a href="#about" data-lang="en">About</a>
-                    <a href="#about" data-lang="ur">میرے بارے میں</a>
-                </li>
-                <li>
-                    <a href="#services" data-lang="en">Services</a>
-                    <a href="#services" data-lang="ur">خدمات</a>
-                </li>
-                <li>
-                    <a href="#projects" data-lang="en">Projects</a>
-                    <a href="#projects" data-lang="ur">نمونہ کام</a>
-                </li>
-                <li>
-                    <a href="#contact" data-lang="en">Contact</a>
-                    <a href="#contact" data-lang="ur">رابطہ</a>
-                </li>
-                <li class="toggle-group">
-                    <button class="toggle-btn lang-btn active" data-switch-lang="ur">🇵🇰 اردو</button>
-                    <button class="toggle-btn lang-btn" data-switch-lang="en">🇬🇧 EN</button>
-                    <label style="display:flex;align-items:center;cursor:pointer;margin:0;user-select:none" title="Dark / Light Mode">
-                        <input type="checkbox" class="theme-switch" />
-                    </label>
-                </li>
-            </ul>
+            <div class="nav-buttons">
+                <button class="lang-toggle" id="langToggle">
+                    <span id="langText">Urdu</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#order" class="nav-order-btn">Order Now 🛒</a>
+            </div>
         </div>
     </header>
 
-    <!-- ===== HERO ===== -->
-    <section id="home" class="hero container">
-        <div>
-            <span class="tag" data-lang="en">Welcome — Assalam-o-Alaikum! 👋</span>
-            <span class="tag" data-lang="ur">خوش آمدید — السلام علیکم! 👋</span>
-
-            <h1>I'm <span>Noor Hussain</span><br />Web & <span>UI / Graphic Designer</span></h1>
-
-            <p class="urdu" data-lang="ur">میں صاف، جدید اور موبائل دوست ویب سائٹس، لینڈنگ پیجز، لوگو اور ڈیزائن بناتا ہوں — HTML، CSS اور Figma کے ساتھ۔ آپ کے خیالات کو خوبصورت اور فعال شکل دینا میرا جذبہ ہے۔</p>
-            <p data-lang="en">I build clean, modern, mobile-friendly websites, landing pages, logos &amp; designs — using HTML, CSS &amp; Figma. Turning your ideas into beautiful, working designs is my passion.</p>
-
-            <p data-lang="en">Building clean, fast, fully-responsive websites &amp; visuals — simple code, modern look, built-in SEO. Ready to start small &amp; grow together!</p>
-            <p data-lang="ur">صاف، تیز اور ہر سکرین پر بالکل درست ویب سائٹس اور ڈیزائن — سادہ کوڈ، جدید انداز، اور SEO تیار۔ چھوٹے آغاز سے بڑھنے کے لیے تیار!</p>
-
-            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.2rem">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fa-solid fa-folder-open"></i>
-                    <span data-lang="en">View My Work</span>
-                    <span data-lang="ur">میرا کام دیکھیں</span>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badges">
+                <span class="hero-badge"><i class="fas fa-check-circle"></i> 100% Satisfaction</span>
+                <span class="hero-badge"><i class="fas fa-bolt"></i> Fast Delivery</span>
+                <span class="hero-badge"><i class="fas fa-infinity"></i> Unlimited Revisions</span>
+                <span class="hero-badge"><i class="fas fa-award"></i> Top Rated</span>
+            </div>
+            <h1 id="heroHeading">Hi, I'm <span>Noor Hussain</span> 👋</h1>
+            <p class="subtitle" id="heroSubtitle">Premium Web & Graphic Designer from Karachi, Pakistan. I create stunning websites, professional logos, and eye-catching social media designs — bilingual in English & Urdu. Fast delivery, unlimited revisions, and 100% satisfaction guaranteed!</p>
+            <div class="hero-buttons">
+                <a href="https://zinnhub.com/store/noor-web-studio/" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-shopping-cart"></i> Order Directly
                 </a>
-                <a href="#contact" class="btn btn-outline">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span data-lang="en">Hire / Contact Me</span>
-                    <span data-lang="ur">مجھ سے رابطہ کریں</span>
+                <a href="#order" class="btn btn-secondary">
+                    <i class="fas fa-file-alt"></i> Quick Order Form
                 </a>
             </div>
-        </div>
-
-        <div style="background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(249,115,22,.08));border-radius:24px;padding:2.5rem 1.5rem;text-align:center">
-            <img src="logo.png" alt="Noor Hussain" loading="lazy" style="width:120px;height:120px;border-radius:50%;object-fit:contain;margin:0 auto 1rem;border:3px solid var(--primary);box-shadow:var(--shadow)" />
-            <p style="font-weight:600;font-size:1.1rem">
-                <span data-lang="en">✅ Available for New Projects</span>
-                <span data-lang="ur">✅ نئے منصوبوں کے لیے دستیاب</span>
-            </p>
-            <p style="color:var(--muted);margin-top:.25rem;margin-bottom:1.5rem">
-                <span data-lang="en">Karachi, Pakistan · Worldwide Remote</span>
-                <span data-lang="ur">کراچی، پاکستان · پوری دنیا میں آن لائن کام</span>
-            </p>
-            <hr style="border-color:rgba(0,0,0,.08);margin:1rem 0" />
-            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem">
-                <span class="skill-badge">HTML5</span>
-                <span class="skill-badge">CSS3</span>
-                <span class="skill-badge">Figma</span>
-                <span class="skill-badge">UI/UX</span>
-                <span class="skill-badge">Responsive</span>
-            </div>
-            <p style="font-size:.8rem;color:var(--muted);margin-top:1rem">
-                <span data-lang="en">Tools I work with daily</span>
-                <span data-lang="ur">یہ میرے روزمرہ کے اوزار ہیں</span>
-            </p>
-        </div>
-    </section>
-
-    <!-- ===== ABOUT ===== -->
-    <section id="about" style="background:var(--card)">
-        <div class="container">
-            <h2>
-                <span data-lang="en">About Me</span>
-                <span data-lang="ur">میرے بارے میں</span>
-            </h2>
-            <div style="max-width:800px;margin:0 auto;display:grid;gap:1.5rem;font-size:1.05rem">
-                <p data-lang="en">I started designing because I love seeing ideas turn into something real you can touch &amp; use. I focus on clean, well-organized HTML &amp; CSS code, simple navigation, balanced colours &amp; layouts that look perfect on phones, tablets &amp; computers — because most people visit sites from mobiles first!</p>
-                <p data-lang="ur">میں نے ڈیزائن اس لیے شروع کیا کہ مجھے خیالات کو حقیقت میں بدلتے دیکھنا بہت پسند ہے۔ میں صاف اور منظم HTML اور CSS کوڈ، سادہ راستہ، متوازن رنگ اور ایسے ڈیزائن پر توجہ دیتا ہوں جو فون، ٹیبلٹ اور کمپیوٹر پر بالکل درست نظر آئیں — کیونکہ زیادہ تر لوگ پہلے موبائل سے ہی ویب سائٹ دیکھتے ہیں!</p>
-
-                <p data-lang="ur" class="urdu">میں ایسے ڈیزائن بناتا ہوں جو صاف، تیز اور ہر سکرین پر بالکل درست نظر آئیں — چاہے وہ فون ہو، ٹیبلٹ یا کمپیوٹر۔ میری کوشش یہی ہے کہ آپ کا صارف آتے ہی محفوظ اور پرسکون محسوس کرے۔</p>
-                <p data-lang="en">I make designs that are clean, fast &amp; look perfect everywhere — phones, tablets &amp; computers. My goal: every visitor feels welcome, safe &amp; comfortable right away.</p>
-
-                <p>
-                    <strong>
-                        <span data-lang="en">My Tools &amp; Skills:</span>
-                        <span data-lang="ur">میرے آلات اور مہارتیں:</span>
-                    </strong>
-                    HTML5 • CSS3 • Flexbox / Grid • Figma UI Design • Basic SEO • GitHub • Responsive/Mobile-First Layouts
-                </p>
-
-                <p data-lang="en">I'm honest — I tell exactly what I can do &amp; learn fast what I still need. I reply quickly, keep files tidy, meet deadlines &amp; write plain notes so you can manage updates easily later. My goal: Great-looking honest work, fair prices, treat every client respectfully — grow step-by-step together!</p>
-                <p data-lang="ur">میں سچ بولتا ہوں — جو کرسکتا ہوں وہ بتاتا ہوں، اور جو نہیں سیکھ سکتا وہ جلد سیکھتا ہوں۔ میں جلد جواب دیتا ہوں، فائلوں کو صاف رکھتا ہوں، مقررہ وقت پر کام مکمل کرتا ہوں اور سادہ ہدایات لکھتا ہوں تاکہ آپ بعد میں بھی آسانی سے تبدیل کر سکیں۔ میرا مقصد: اچھا اور سچا کام، مناسب قیمت، اور ہر ایک کے ساتھ اچھا سلوک — مل کر آگے بڑھیں گے!</p>
+            
+            <!-- 📊 Stats Counter -->
+            <div class="stats-wrapper">
+                <div class="stat-card">
+                    <div class="stat-number" id="stat1">45+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="stat2">30+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="stat3">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="stat4">2 Days</div>
+                    <div class="stat-label">Avg. Delivery</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SERVICES ===== -->
-    <section id="services">
+    <!-- Services Section -->
+    <section id="services" class="fade-in-section">
         <div class="container">
-            <h2>
-                <span data-lang="en">My Services</span>
-                <span data-lang="ur">میری خدمات</span>
-            </h2>
-            <div class="grid-3">
-
-                <div class="card">
-                    <h3>🌐 <span data-lang="en">Website / Landing Page</span><span data-lang="ur">ویب سائٹ / لینڈنگ پیج</span></h3>
-                    <p data-lang="en">Full-build from scratch — clean semantic HTML + CSS, mobile-first layout, SEO-ready tags &amp; structure, contact section &amp; links.</p>
-                    <p data-lang="ur">شروع سے مکمل تعمیر — صاف HTML اور CSS، پہلے موبائل کے لیے ڈیزائن، SEO کے لیے تیار، رابطہ اور لنکس شامل۔</p>
-                    <p style="margin-top:.8rem"><strong>⏱️ <span data-lang="en">1-3 Days | Starts $40-60 USD</span><span data-lang="ur">1-3 دن | شروع $40-60 امریکی ڈالر</span></strong></p>
+            <div class="section-heading">
+                <h2>What I Offer</h2>
+                <p>Premium design services crafted to elevate your business brand</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Website Design</h3>
+                    <p>Custom responsive websites — mobile-friendly, fast loading, SEO-optimized, modern UI/UX.</p>
                 </div>
-
-                <div class="card">
-                    <h3>🎨 <span data-lang="en">Logo &amp; Brand Identity</span><span data-lang="ur">لوگو اور شناختِ برانڈ</span></h3>
-                    <p data-lang="en">Concept drafts → refine → deliver: vector SVG/AI fully editable + transparent PNG + JPG + colour palette codes.</p>
-                    <p data-lang="ur">خیالات → بہتری → حتمی فائلیں: SVG/AI ترمیم کے لیے تیار، شفاف PNG، JPG اور رنگین کوڈز۔</p>
-                    <p style="margin-top:.8rem"><strong>⏱️ <span data-lang="en">1-3 Days | Starts $30-50 USD</span><span data-lang="ur">1-3 دن | شروع $30-50 امریکی ڈالر</span></strong></p>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
+                    <h3>Logo Design</h3>
+                    <p>Unique professional logos — 3 initial concepts, high-res files, full ownership rights.</p>
                 </div>
-
-                <div class="card">
-                    <h3>📱 <span data-lang="en">UI Layouts &amp; Wireframes</span><span data-lang="ur">یوزر انٹرفیس اور خاکے</span></h3>
-                    <p data-lang="en">User flow planning → structure sketches → full-colour clickable prototypes in Figma — ready for coding or dev-team hand-off.</p>
-                    <p data-lang="ur">صفحہ کا بہاؤ → خاکے → مکمل رنگین اور کلک کرنے والا ماڈل — کوڈ یا دوسرے ڈویلپرز کے لیے بالکل تیار۔</p>
-                    <p style="margin-top:.8rem"><strong>⏱️ <span data-lang="en">1-3 Days | Starts $25-45 USD</span><span data-lang="ur">1-3 دن | شروع $25-45 امریکی ڈالر</span></strong></p>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-share-alt"></i></div>
+                    <h3>Social Media</h3>
+                    <p>Posts, banners, covers — Instagram, Facebook, LinkedIn, YouTube, and more.</p>
                 </div>
-
-                <div class="card">
-                    <h3>🔧 <span data-lang="en">Redesign / Fix &amp; Improve</span><span data-lang="ur">دوبارہ ڈیزائن / درست اور بہتری</span></h3>
-                    <p data-lang="en">Clean messy code, update visuals, make mobile-friendly, fix layout bugs, speed-up &amp; SEO polish — refresh instead of rebuild.</p>
-                    <p data-lang="ur">گندے کوڈ کو صاف، پرانے ڈیزائن کو نیا بنائیں، موبائل کے لیے بہتر، رفتار بڑھائیں اور SEO بہتر — نئے کی بجائے موجودہ کو بہتر بنائیں۔</p>
-                    <p style="margin-top:.8rem"><strong>⏱️ <span data-lang="en">1-2 Days | Quote after review</span><span data-lang="ur">1-2 دن | قیمت دیکھ کر بتاؤں گا</span></strong></p>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-language"></i></div>
+                    <h3>Bilingual Urdu</h3>
+                    <p>Perfect Urdu + English layouts — Right-toLeft support, professional typography.</p>
                 </div>
-
-                <div class="card">
-                    <h3>✏️ <span data-lang="en">Urdu-English Bilingual</span><span data-lang="ur">اردو اور انگریزی دونوں زبانوں میں</span></h3>
-                    <p data-lang="en">Proper right-to-left &amp; mixed-layout support — text alignment, fonts &amp; flow tuned naturally for both languages.</p>
-                    <p data-lang="ur">دائیں سے بائیں اور دونوں زبانوں کے ساتھ ساتھ کام — سیدھ، فونٹ اور صفحہ کا بہاؤ دونوں کے لیے بالکل درست۔</p>
-                    <p style="margin-top:.8rem"><strong>✅ <span data-lang="en">Included Free</span><span data-lang="ur">مفت شامل ہے</span></strong></p>
-                </div>
-
-                <div class="card">
-                    <h3>🚀 <span data-lang="en">Publish / GitHub Help</span><span data-lang="ur">لائیو کرنا / مدد حاصل کریں</span></h3>
-                    <p data-lang="en">Guide &amp; upload files — GitHub Pages, Netlify setup, custom domain linking &amp; basic deployment troubleshooting included.</p>
-                    <p data-lang="ur">فائلیں اپ لوڈ اور مدد — GitHub، Netlify، اپنا لنک بنانا اور مسائل حل کرنا سب شامل۔</p>
-                    <p style="margin-top:.8rem"><strong>✅ <span data-lang="en">Included Free</span><span data-lang="ur">مفت شامل ہے</span></strong></p>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
-    <section id="projects" style="background:var(--card)">
+    <!-- My Work Section -->
+    <section id="work" class="fade-in-section">
         <div class="container">
-            <h2>
-                <span data-lang="en">My Work</span>
-                <span data-lang="ur">نمونہ کام</span>
-            </h2>
-            <div class="grid-3">
-
-                <div class="card">
-                    <img src="project.jpg" alt="Personal Portfolio Website" loading="lazy" />
-                    <h3><span data-lang="en">Personal Portfolio Site</span><span data-lang="ur">ذاتی پورٹ فولیو ویب سائٹ</span></h3>
-                    <p><strong data-lang="en">What:</strong><span data-lang="en"> Fully-responsive bilingual Urdu+English portfolio — Home/About/Services/Projects/Contact</span></p>
-                    <p><strong data-lang="ur">کام:</strong><span data-lang="ur"> مکمل طور پر موبائل دوست اور دو زبانوں پر مشتمل پورٹ فولیو — ہوم، بارے میں، خدمات، نمونہ کام اور رابطہ</span></p>
-                    <p style="margin-top:.5rem"><strong data-lang="en">Tech:</strong> HTML5 • CSS3 • Google Fonts • FontAwesome • GitHub Pages</p>
-                    <p style="margin-top:.5rem"><strong data-lang="en">Live:</strong> <a href="https://noorprofessionalwebdesigner-dev.github.io/noor-/" target="_blank" style="color:var(--primary)">GitHub Live Site</a></p>
+            <div class="section-heading">
+                <h2>My Portfolio</h2>
+                <p>Hand-picked selection of my recent work — click to explore more</p>
+            </div>
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-image">
+                        <i class="fas fa-pen-nib"></i>
+                        <div class="work-overlay"><span>View Details</span></div>
+                    </div>
+                    <div class="work-content">
+                        <h3>Business Brand Logo</h3>
+                        <p>Professional logo design for a local business startup — modern & memorable.</p>
+                        <div class="work-tags">
+                            <span class="tag">Logo</span>
+                            <span class="tag">Branding</span>
+                            <span class="tag">Figma</span>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="card">
-                    <img src="project1.jpg" alt="Business Landing Page" loading="lazy" />
-                    <h3><span data-lang="en">Business Landing Page</span><span data-lang="ur">کاروبار کے لیے لینڈنگ پیج</span></h3>
-                    <p><strong data-lang="en">Concept:</strong><span data-lang="en"> Clean, calm welcoming design — suitable for clinics, trainers or consultants — soft palette &amp; easy navigation</span></p>
-                    <p><strong data-lang="ur">خیال:</strong><span data-lang="ur"> صاف، پرسکون اور خوش آئند ڈیزائن — کلینک، ٹرینرز اور ماہرین کے لیے — نرم رنگ اور آسان راستہ</span></p>
-                    <p style="margin-top:.5rem"><strong data-lang="en">Tech:</strong> Semantic HTML + Flexbox — mobile-first, SEO-optimized</p>
-                    <p style="margin-top:.5rem"><strong data-lang="en">Status:</strong><span data-lang="en"> Demo / Template — ready to use &amp; customize</span></p>
+                <div class="work-card">
+                    <div class="work-image" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">
+                        <i class="fas fa-share-alt"></i>
+                        <div class="work-overlay"><span>View Details</span></div>
+                    </div>
+                    <div class="work-content">
+                        <h3>Social Media Pack</h3>
+                        <p>5 Instagram/Facebook posts — consistent branding, ready to post.</p>
+                        <div class="work-tags">
+                            <span class="tag">Social Media</span>
+                            <span class="tag">Post Design</span>
+                            <span class="tag">Canva</span>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="card">
-                    <img src="2.png" alt="Logo & Brand Identity Design" loading="lazy" />
-                    <h3><span data-lang="en">Logo &amp; Brand Identity Design</span><span data-lang="ur">لوگو اور شناخت کا ڈیزائن</span></h3>
-                    <p><strong data-lang="en">Concept:</strong><span data-lang="en"> Custom logos, colour palettes &amp; simple branding kits — matching your style &amp; business needs perfectly.</span></p>
-                    <p><strong data-lang="ur">خیال:</strong><span data-lang="ur"> اپنے انداز اور کاروبار کے مطابق لوگو، رنگوں کا انتخاب اور مکمل شناخت — بالکل آپ کی سوچ کے مطابق۔</span></p>
-                    <p style="margin-top:.5rem"><strong data-lang="en">Tech:</strong> Figma • SVG • PNG • Vector files</p>
-                    <p style="margin-top:.5rem"><strong data-lang="en">Status:</strong><span data-lang="en"> Ready — deliver all editable files</span></p>
+                <div class="work-card">
+                    <div class="work-image" style="background: linear-gradient(135deg, #10b981, #059669);">
+                        <i class="fas fa-code"></i>
+                        <div class="work-overlay"><span>View Details</span></div>
+                    </div>
+                    <div class="work-content">
+                        <h3>Business Website</h3>
+                        <p>Single-page responsive website — pure HTML & CSS, fast & clean design.</p>
+                        <div class="work-tags">
+                            <span class="tag">Website</span>
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
-    <section id="contact">
+    <!-- 🗺️ Process Timeline -->
+    <section class="process-section fade-in-section">
         <div class="container">
-            <h2>
-                <span data-lang="en">Get In Touch</span>
-                <span data-lang="ur">رابطے میں رہیں</span>
-            </h2>
-            <div style="max-width:600px;margin:0 auto;background:var(--card);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)">
-                <p style="margin-bottom:1rem;font-size:1.05rem">📧 <strong>Email:</strong> <a href="mailto:noor226230@gmail.com" style="color:var(--primary);text-decoration:none">noor226230@gmail.com</a></p>
-                <p style="margin-bottom:1rem;font-size:1.05rem">📱 <strong>Phone / WhatsApp:</strong> <a href="tel:+923110226230" style="color:var(--primary);text-decoration:none">0311-0226230</a></p>
-                <p style="margin-bottom:1rem;font-size:1.05rem">📍 <strong>Location:</strong> Karachi, Pakistan 🇵🇰</p>
-                <p style="margin-bottom:1rem;font-size:1.05rem">🔗 <strong>Portfolio:</strong>
-                    <a href="https://noorprofessionalwebdesigner-dev.github.io/noor-/" target="_blank" style="color:var(--primary);text-decoration:none">GitHub Live</a> |
-                    <a href="https://tinyurl.com/noor-portfolio-pk" target="_blank" style="color:var(--primary);text-decoration:none">Short Link</a>
-                </p>
+            <div class="section-heading">
+                <h2>How It Works</h2>
+                <p>Simple 5-step process — from idea to final delivery</p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Briefing</h4>
+                    <p>Tell me what you need — share your vision, references & requirements</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Quote</h4>
+                    <p>I send you a clear price & timeline — no hidden charges</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Design</h4>
+                    <p>I work on your project — regular updates along the way</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Revisions</h4>
+                    <p>Unlimited changes until you're 100% happy — your satisfaction first</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Delivery</h4>
+                    <p>Final files delivered — all formats included, full copyright yours</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <div class="container">
-            <p>© <span id="year"></span> Noor Hussain — <span data-lang="en">All Rights Reserved</span><span data-lang="ur">جملہ حقوق محفوظ ہیں</span>.</p>
-        </div>
-    </footer>
-
-    <!-- ===== JAVASCRIPT ===== -->
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // ===== THEME =====
-        const themeSwitch = document.querySelector('.theme-switch');
-
-        function applyTheme(t) {
-            document.body.dataset.theme = t;
-            themeSwitch.checked = (t === 'dark');
-            localStorage.setItem('theme', t);
-        }
-
-        themeSwitch.addEventListener('change', function() {
-            const next = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-            applyTheme(next);
-        });
-
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) applyTheme(savedTheme);
-
-        // ===== LANGUAGE + RTL/LTR + ACTIVE + SAVE =====
-        const langBtns = document.querySelectorAll('[data-switch-lang]');
-
-        function applyLang(code) {
-            // Page direction & HTML lang
-            document.documentElement.lang = code;
-            document.documentElement.dir = (code === 'ur') ? 'rtl' : 'ltr';
-
-            // Show/hide content
-            document.body.classList.toggle('lang-ur', code === 'ur');
-
-            // Highlight active button
-            langBtns.forEach(function(b) {
-                b.classList.toggle('active', b.dataset.switchLang === code);
-            });
-
-            localStorage.setItem('lang', code);
-        }
-
-        langBtns.forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                applyLang(btn.dataset.switchLang);
-            });
-        });
-
-        const savedLang = localStorage.getItem('lang');
-        applyLang(savedLang || 'ur');
-    </script>
-
-</body>
-</html>
+    <!-- ⭐ Testimonials Section -->
