@@ -61,7 +61,6 @@
             padding: 0 20px;
         }
 
-        /* 📊 Scroll Progress Bar */
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -73,7 +72,6 @@
             transition: width 0.1s ease;
         }
 
-        /* ⚡ Top Bar */
         .top-bar {
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             color: white;
@@ -93,7 +91,6 @@
             font-size: 0.85rem;
         }
 
-        /* 🔔 Floating Notification */
         .floating-notification {
             position: fixed;
             bottom: 90px;
@@ -127,7 +124,6 @@
             color: var(--text);
         }
 
-        /* 💬 Floating WhatsApp Chat */
         .floating-whatsapp {
             position: fixed;
             bottom: 25px;
@@ -158,7 +154,6 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* Header */
         header {
             padding: 18px 0;
             position: sticky;
@@ -178,6 +173,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .logo {
@@ -210,6 +207,7 @@
             display: flex;
             gap: 12px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .lang-toggle {
@@ -261,7 +259,6 @@
             box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
         }
 
-        /* Hero Section */
         .hero {
             padding: 90px 0 80px;
             text-align: center;
@@ -389,23 +386,10 @@
             transform: translateY(-2px);
         }
 
-        .btn-outline-white {
-            border: 2px solid white;
-            color: white;
-            background: transparent;
-        }
-
-        .btn-outline-white:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        /* 📊 Stats Counter */
         .stats-wrapper {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 25px;
-            margin-top: 30px;
         }
 
         @media (max-width: 768px) {
@@ -487,7 +471,6 @@
             transform: translateY(0);
         }
 
-        /* Services */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -519,17 +502,17 @@
             transition: opacity 0.4s ease;
         }
 
-        .service-card:hover:hover {
+        .service-card:hover {
             transform: translateY(-10px);
             color: white;
         }
 
-        .service-card:hover:hover .service-icon {
+        .service-card:hover .service-icon {
             background: white;
             color: var(--primary);
         }
 
-        .service-card:hover:hover::before {
+        .service-card:hover::before {
             opacity: 1;
         }
 
@@ -557,7 +540,6 @@
             opacity: 0.85;
         }
 
-        /* My Work Gallery */
         .work-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -588,12 +570,6 @@
             font-size: 3rem;
             position: relative;
             overflow: hidden;
-        }
-
-        .work-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .work-overlay {
@@ -655,7 +631,6 @@
             font-weight: 500;
         }
 
-        /* 🗺️ Process Timeline */
         .process-section {
             background: linear-gradient(180deg, rgba(99, 102, 241, 0.03), transparent);
             border-radius: 24px;
@@ -723,293 +698,6 @@
             line-height: 1.4;
         }
 
-        /* Testimonials */
-        .testimonials-section {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.03), rgba(236, 72, 153, 0.03));
-            border-radius: 24px;
-            padding: 60px 30px;
-            margin: 60px 0;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            background: var(--card);
-            padding: 30px;
-            border-radius: 18px;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            font-size: 4rem;
-            color: rgba(99, 102, 241, 0.08);
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-family: serif;
-            line-height: 1;
-        }
-
-        .stars {
-            color: #f59e0b;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            color: var(--text);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--dark);
-            font-size: 0.95rem;
-        }
-
-        .testimonial-role {
-            color: var(--muted);
-            font-size: 0.8rem;
-        }
-
-        /* Pricing Packages */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
-        }
-
-        .pricing-card {
-            background: var(--card);
-            border-radius: 24px;
-            padding: 45px 30px;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s ease;
-            position: relative;
-            border: 2px solid transparent;
-            overflow: hidden;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.15);
-        }
-
-        .pricing-card.featured {
-            transform: scale(1.05);
-            border-color: var(--primary);
-        }
-
-        .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        .pricing-badge {
-            position: absolute;
-            top: 20px;
-            right: -30px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 6px 35px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            transform: rotate(45deg);
-        }
-
-        .pricing-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 5px;
-        }
-
-        .pricing-subtitle {
-            font-size: 0.85rem;
-            color: var(--muted);
-            margin-bottom: 15px;
-        }
-
-        .pricing-price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 30px;
-            line-height: 1;
-        }
-
-        .pricing-price span {
-            font-size: 1rem;
-            color: var(--muted);
-            font-weight: 400;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 35px;
-            text-align: left;
-        }
-
-        .pricing-features li {
-            padding: 11px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.04);
-            color: var(--text);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .pricing-features li i {
-            color: var(--accent);
-            flex-shrink: 0;
-        }
-
-        .btn-block {
-            width: 100%;
-            justify-content: center;
-        }
-
-        /* Order Form Section */
-        .order-section {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
-            border-radius: 24px;
-            padding: 70px 30px;
-            margin: 70px 0;
-        }
-
-        .order-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--card);
-            padding: 45px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        @media (max-width: 600px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .form-group {
-            margin-bottom: 22px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px 18px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            color: var(--text);
-            background: var(--light);
-            transition: all 0.3s ease;
-            outline: none;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 130px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
-        }
-
-        /* Why Choose Me */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .why-item {
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-            background: var(--card);
-            padding: 28px;
-            border-radius: 16px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-        }
-
-        .why-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .why-icon {
-            font-size: 1.5rem;
-            color: var(--primary);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .why-content h4 {
-            font-size: 1rem;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .why-content p {
-            font-size: 0.88rem;
-            color: var(--muted);
-            line-height: 1.5;
-        }
-
-        /* CTA Section */
         .cta {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 24px;
@@ -1018,6 +706,7 @@
             color: white;
             position: relative;
             overflow: hidden;
+            margin: 60px 0;
         }
 
         .cta::before {
@@ -1062,7 +751,6 @@
             color: white;
         }
 
-        /* Contact */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1115,7 +803,6 @@
             font-size: 0.88rem;
         }
 
-        /* Footer */
         footer {
             background: var(--card);
             padding: 60px 0 25px;
@@ -1173,48 +860,29 @@
             font-size: 0.85rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-
-            .pricing-card.featured:hover {
-                transform: translateY(-10px);
-            }
-
-            .order-form {
-                padding: 25px 20px;
-            }
+            .hero h1 { font-size: 2rem; }
+            .nav-wrapper { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 📊 Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- 🔔 Floating Notification -->
     <div class="floating-notification" id="floatingNote">
         <i class="fas fa-check-circle"></i>
         <p>Someone just placed an order! 🎉</p>
     </div>
 
-    <!-- 💬 Floating WhatsApp Chat -->
     <a href="https://wa.me/923110226230" target="_blank" class="floating-whatsapp" title="Chat with me on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- ⚡ Top Bar -->
     <div class="top-bar">
         ⚡ Limited Slots Available — Book Your Project Today! <span>⚡ 3 Spots Left This Week</span>
     </div>
 
-    <!-- Header -->
     <header>
         <div class="container nav-wrapper">
             <a href="#" class="logo">
@@ -1228,12 +896,11 @@
                 <button class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#order" class="nav-order-btn">Order Now 🛒</a>
+                <a href="#contact" class="nav-order-btn">Order Now 🛒</a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-badges">
@@ -1242,40 +909,38 @@
                 <span class="hero-badge"><i class="fas fa-infinity"></i> Unlimited Revisions</span>
                 <span class="hero-badge"><i class="fas fa-award"></i> Top Rated</span>
             </div>
-            <h1 id="heroHeading">Hi, I'm <span>Noor Hussain</span> 👋</h1>
-            <p class="subtitle" id="heroSubtitle">Premium Web & Graphic Designer from Karachi, Pakistan. I create stunning websites, professional logos, and eye-catching social media designs — bilingual in English & Urdu. Fast delivery, unlimited revisions, and 100% satisfaction guaranteed!</p>
+            <h1>Hi, I'm <span>Noor Hussain</span> 👋</h1>
+            <p class="subtitle">Premium Web & Graphic Designer from Karachi, Pakistan. I create stunning websites, professional logos, and eye-catching social media designs — bilingual in English & Urdu. Fast delivery, unlimited revisions, and 100% satisfaction guaranteed!</p>
             <div class="hero-buttons">
                 <a href="https://zinnhub.com/store/noor-web-studio/" class="btn btn-primary" target="_blank">
                     <i class="fas fa-shopping-cart"></i> Order Directly
                 </a>
-                <a href="#order" class="btn btn-secondary">
-                    <i class="fas fa-file-alt"></i> Quick Order Form
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Contact Me
                 </a>
             </div>
             
-            <!-- 📊 Stats Counter -->
             <div class="stats-wrapper">
                 <div class="stat-card">
-                    <div class="stat-number" id="stat1">45+</div>
+                    <div class="stat-number">45+</div>
                     <div class="stat-label">Projects Completed</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" id="stat2">30+</div>
+                    <div class="stat-number">30+</div>
                     <div class="stat-label">Happy Clients</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" id="stat3">24/7</div>
+                    <div class="stat-number">24/7</div>
                     <div class="stat-label">Support Available</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" id="stat4">2 Days</div>
+                    <div class="stat-number">2 Days</div>
                     <div class="stat-label">Avg. Delivery</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="fade-in-section">
         <div class="container">
             <div class="section-heading">
@@ -1301,18 +966,17 @@
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-language"></i></div>
                     <h3>Bilingual Urdu</h3>
-                    <p>Perfect Urdu + English layouts — Right-toLeft support, professional typography.</p>
+                    <p>Perfect Urdu + English layouts — Right-to-Left support, professional typography.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- My Work Section -->
     <section id="work" class="fade-in-section">
         <div class="container">
             <div class="section-heading">
                 <h2>My Portfolio</h2>
-                <p>Hand-picked selection of my recent work — click to explore more</p>
+                <p>Hand-picked selection of my recent work</p>
             </div>
             <div class="work-grid">
                 <div class="work-card">
@@ -1322,11 +986,10 @@
                     </div>
                     <div class="work-content">
                         <h3>Business Brand Logo</h3>
-                        <p>Professional logo design for a local business startup — modern & memorable.</p>
+                        <p>Professional logo design for a local business startup.</p>
                         <div class="work-tags">
                             <span class="tag">Logo</span>
                             <span class="tag">Branding</span>
-                            <span class="tag">Figma</span>
                         </div>
                     </div>
                 </div>
@@ -1337,11 +1000,10 @@
                     </div>
                     <div class="work-content">
                         <h3>Social Media Pack</h3>
-                        <p>5 Instagram/Facebook posts — consistent branding, ready to post.</p>
+                        <p>5 Instagram/Facebook posts — ready to post.</p>
                         <div class="work-tags">
                             <span class="tag">Social Media</span>
                             <span class="tag">Post Design</span>
-                            <span class="tag">Canva</span>
                         </div>
                     </div>
                 </div>
@@ -1352,11 +1014,10 @@
                     </div>
                     <div class="work-content">
                         <h3>Business Website</h3>
-                        <p>Single-page responsive website — pure HTML & CSS, fast & clean design.</p>
+                        <p>Single-page responsive website — pure HTML & CSS.</p>
                         <div class="work-tags">
                             <span class="tag">Website</span>
                             <span class="tag">HTML/CSS</span>
-                            <span class="tag">Responsive</span>
                         </div>
                     </div>
                 </div>
@@ -1364,7 +1025,6 @@
         </div>
     </section>
 
-    <!-- 🗺️ Process Timeline -->
     <section class="process-section fade-in-section">
         <div class="container">
             <div class="section-heading">
@@ -1375,30 +1035,147 @@
                 <div class="process-step">
                     <div class="step-number">1</div>
                     <h4>Briefing</h4>
-                    <p>Tell me what you need — share your vision, references & requirements</p>
+                    <p>Tell me what you need</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <h4>Quote</h4>
-                    <p>I send you a clear price & timeline — no hidden charges</p>
+                    <p>Clear price & timeline</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">3</div>
                     <h4>Design</h4>
-                    <p>I work on your project — regular updates along the way</p>
+                    <p>I work on your project</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">4</div>
                     <h4>Revisions</h4>
-                    <p>Unlimited changes until you're 100% happy — your satisfaction first</p>
+                    <p>Unlimited changes</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">5</div>
                     <h4>Delivery</h4>
-                    <p>Final files delivered — all formats included, full copyright yours</p>
+                    <p>Final files delivered</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ⭐ Testimonials Section -->
+    <section class="cta fade-in-section">
+        <div class="container">
+            <h2>Ready to Start Your Project? 🚀</h2>
+            <p>Don't wait — limited slots available every week. Secure your spot today and let's bring your vision to life!</p>
+            <a href="https://wa.me/923110226230" class="btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp Direct Order
+            </a>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Contact Me</h2>
+                <p>Choose your preferred way to get in touch — I reply fast!</p>
+            </div>
+            <div class="contact-grid">
+                <a href="https://wa.me/923110226230" target="_blank" class="contact-card">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h4>WhatsApp</h4>
+                    <p>0311-0226230</p>
+                </a>
+                <a href="mailto:noor226230@gmail.com" class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Email</h4>
+                    <p>noor226230@gmail.com</p>
+                </a>
+                <a href="https://zinnhub.com/store/noor-web-studio/" target="_blank" class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <h4>Zinn Hub</h4>
+                    <p>Place your order directly</p>
+                </a>
+                <a href="https://noorprofessionalwebdesigner-dev.github.io/noor.h/" target="_blank" class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                    <h4>Full Portfolio</h4>
+                    <p>View all my work</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#work">Portfolio</a>
+                <a href="#contact">Contact</a>
+                <a href="https://zinnhub.com/store/noor-web-studio/" target="_blank">Zinn Hub Store</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://wa.me/923110226230" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:noor226230@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://zinnhub.com/store/noor-web-studio/" target="_blank"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+            <p>&copy; 2026 Noor Web Studio. All rights reserved. Made with ❤️ in Karachi, Pakistan.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+
+        // Fade In Sections on Scroll
+        const fadeInSections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeInSections.forEach(section => observer.observe(section));
+
+        // Floating Notification Auto-Show
+        setTimeout(() => {
+            const note = document.getElementById('floatingNote');
+            note.classList.add('show');
+            setTimeout(() => {
+                note.classList.remove('show');
+            }, 5000);
+        }, 3000);
+    </script>
+
+</body>
+</html>
